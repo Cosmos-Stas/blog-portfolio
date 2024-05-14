@@ -3,7 +3,7 @@
 <br><br><br><br>
 <h2>Пока что лишь один проект:</h2>
 <br><br><br><br>
-<h2><router-link to="/"><i>my</i>Blog-Portfolio</router-link></h2>
+<h2><i>my</i>Blog-Portfolio <a target="_blank" href="https://github.com/Cosmos-Stas/blog-portfolio.git"><i class="fa-brands fa-github"></i></a></h2>
 <br><br><br><br>
 <p class="Go"><center>Но все впереди...</center></p>
 

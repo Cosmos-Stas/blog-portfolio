@@ -4,6 +4,7 @@
             <li><a href="mailto:k.stas.a@rambler.ru"><i class="fa-solid fa-at"></i> </a></li>
             <li><a href="https://t.me/+-uvDLcj_AJA2NjI6" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
             <li><a href="https://vk.com/konyh" target="_blank"><i class="fa-brands fa-vk"></i></a></li>
+            <li><a target="_blank" href="https://github.com/Cosmos-Stas/blog-portfolio.git"><i class="fa-brands fa-github"></i></a></li>
         </ul>
         <p>Cайт созданн с использованием технологии Vue</p>
         <p>Все права защищены</p>
@@ -24,7 +25,10 @@ footer {
         justify-content: center;
         list-style: none;
         li{ margin: 15px 0;
-            &:not(:last-of-type){margin-right:80px;}
+            &:not(:last-of-type){
+            @media (min-width: 451px){margin-right:80px;}
+            @media (max-width: 450px){ margin-right: 40px;}
+            }
             i {
             font-size: 50px;
            

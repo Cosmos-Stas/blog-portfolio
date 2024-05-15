@@ -3,25 +3,25 @@
         <h2>Мой путь не простой...</h2>
         <p>Из мясного производства в IT сферу</p>
         <dl>
-            <dt>2024 год<span class="openYear" @click="myRoadInfo[0] = !myRoadInfo[0]">Подробнее<i class="fa-solid fa-caret-down"></i></span></dt>
+            <dt>2024 год<span class="openYear" @click="myRoadInfo[0] = !myRoadInfo[0]">{{ myRoadInfo[0] ? 'Скрыть' : 'Показать'}}</span></dt>
             <transition name="fade">
             <div v-if="myRoadInfo[0]">
             <dd  v-for="el in yearFour" :key="year"><span class="a">{{ el.year }}</span>: <span class="b">{{ el.event }}</span></dd>
             </div>
             </transition>
 
-            <dt>2023 год<span class="openYear" @click="myRoadInfo[1] = !myRoadInfo[1]">Подробнее<i class="fa-solid fa-caret-down"></i></span></dt>
+            <dt>2023 год<span class="openYear" @click="myRoadInfo[1] = !myRoadInfo[1]">{{ myRoadInfo[1] ? 'Скрыть' : 'Показать' }}</span></dt>
             <transition name="fade">
             <div v-if="myRoadInfo[1]">
                 <dd  v-for="el in yearThree" :key="year"><span class="a">{{ el.year }}</span>: <span class="b">{{ el.event }}</span></dd>
             </div>
             </transition>
            
-            <dt>Жизнь ранее<span class="openYear" @click="myRoadInfo[2] = !myRoadInfo[2]">Подробнее<i class="fa-solid fa-caret-down"></i></span></dt>
+            <dt>Жизнь ранее<span class="openYear" @click="myRoadInfo[2] = !myRoadInfo[2]">{{ myRoadInfo[2] ? 'Скрыть' : 'Показать' }}</span></dt>
             <transition name="slide-fade">
             <div class="yearAbove"  v-if="myRoadInfo[2]">
                 <div class="slide" :style="'left:' + left + 'px'" >
-                    <dd class="abc"  v-for="el in yearAbove" :key="year"><center><span class="a">{{ el.year }}</span></center><span class="b">{{ el.event }}</span></dd>
+                    <dd class="blockYearAbove"  v-for="el in yearAbove" :key="year"><center><span class="a">{{ el.year }}</span></center><span class="b">{{ el.event }}</span></dd>
                 </div>
 
                 <div class="arrows" v-if="screenWidth >= 769">
@@ -40,7 +40,7 @@ export default {
         return {
             screenWidth: screen.width,
             left: 0,
-            myRoadInfo: [false, false, false],
+            myRoadInfo: [false, false , false],
             yearFour: [
                 {'year': 'Май 2024', 'event': 'Создание первого проекта. Сайт на котором вы сейчас'},
                 {'year': 'Март 2024', 'event': 'Окончание обучения "Профессии Front-end разработчик'},
@@ -107,9 +107,6 @@ export default {
             font-size: 0.7em; 
             align-self: flex-end;
             cursor: pointer;
-            i{
-                margin-left: 3px;
-            }
         }  
           
     }
@@ -136,7 +133,7 @@ export default {
     position: relative;
     transition: left 500ms ease;
     :not(:last-of-type){margin-right: 25px;}
-    .abc {
+    .blockYearAbove {
         width: 250px; 
         }
     }
@@ -165,11 +162,14 @@ export default {
 
 
 }
-.slide-fade-enter-active {
+.slide-fade-enter-active,
+.fade-enter-active {
   transition: all 0.3s ease-out;
 }
 
-.slide-fade-leave-active {
+.slide-fade-leave-active,
+.fade-leave-active
+ {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
@@ -177,11 +177,6 @@ export default {
 .slide-fade-leave-to {
   transform: translateX(1200px);
   opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
